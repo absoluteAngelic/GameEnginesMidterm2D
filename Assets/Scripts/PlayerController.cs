@@ -6,7 +6,7 @@ public class PlayerController : Singleton<PlayerController>
     public float walkForce;
     bool canJump;
     bool lastMovedRight;
-    int playerHealth;
+    [SerializeField] int playerHealth;
     public GameObject winScreen;
     public GameObject loseScreen;
 

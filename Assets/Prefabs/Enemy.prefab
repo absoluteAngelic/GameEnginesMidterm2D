@@ -172,3 +172,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
   endingPositionTransform: {fileID: 0}
   oneDirectionMoveTime: 1.5
+  damage: 20

@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour
     public float oneDirectionMoveTime;
     float movementCursor;
     bool countingUp;
+    public int damage;
 
     void Start()
     {
@@ -41,5 +42,13 @@ public class EnemyScript : MonoBehaviour
         float lerpedCursor = Mathf.InverseLerp(0, oneDirectionMoveTime, movementCursor);
 
         this.transform.position = new Vector3(Mathf.Lerp(startingPosition.x, endingPosition.x, lerpedCursor), Mathf.Lerp(startingPosition.y, endingPosition.y, lerpedCursor), Mathf.Lerp(startingPosition.z, endingPosition.z, lerpedCursor));
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerController.Instance.TakeHealth(damage);
+        }
     }
 }
