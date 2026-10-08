@@ -1,15 +1,20 @@
 using UnityEngine;
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     Rigidbody2D _rb;
     public float jumpForce;
     public float walkForce;
     bool canJump;
     bool lastMovedRight;
+    int playerHealth;
+    public GameObject winScreen;
+    public GameObject loseScreen;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        loseScreen.SetActive(false);
+        winScreen.SetActive(false);
     }
 
     void Update()
@@ -22,6 +27,27 @@ public class PlayerController : MonoBehaviour
                 canJump = false;
             }
         }
+    }
+
+    public void TakeHealth(int dmg)
+    {
+        playerHealth -= dmg;
+        if (playerHealth <= 0)
+        {
+            Lose();
+        }
+    }
+
+    public void Lose()
+    {
+        loseScreen.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void Win()
+    {
+        winScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     void FixedUpdate()
