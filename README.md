@@ -10,7 +10,7 @@ I used a singleton for the player class so that when enemies collide with the pl
 
 Unfortunately I wasn't able to implement a factory in time. Though, I would have used it to spawn bubbles and enemies as previously explained, and I would also have made the generic Factory class inherit from ScriptableObject, and be able to have an Enum where there's only one spawn point, and it could be set as Bubble spawn, or Enemy spawn as I did in my in class activity repo. From the generic Factory class, I would then make BubbleSpawn and EnemySpawn, which would contain the logic for spawning and setting velocity of bubbles, or spawning enemies and setting their movement variables. This would allow only one type of spawn point, so no matter how many things to spawn would be in the game, there would only need to be 1 type of spawn point instead of 20 in the project window. It would also allow different bubble spawn points to be set easily, or be able to add more variables for the enemies that would apply to all enemies (instead of setting prefab variables, potentially in multiple different scripts for different enemy types), and logic for different enemy types could be set easily in one place as well.
 
-Of course, if I had more time, I would have also created pixel art in Krita for the enemies, bubbles, and player, and textured the platforms.
+If I had more time, I would have also had an invisible collider so that if the player falls below the map, they would die instead of having to restart the game. I would also have made a pause menu and restart button when the player dies. Of course, I would have also created pixel art in Krita for the enemies, bubbles, and player, and textured the platforms.
 <br>
 <br>
 <br>
